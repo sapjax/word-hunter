@@ -1,4 +1,5 @@
 {
+  "extends": "./.wxt/tsconfig.json",
   "compilerOptions": {
     "strict": true,
     "target": "ESNext",
@@ -9,7 +10,7 @@
     "esModuleInterop": true,
     "jsx": "preserve",
     "jsxImportSource": "solid-js",
-    "types": ["vite/client", "chrome"],
+    "types": ["chrome"],
     "noEmit": true,
     "isolatedModules": true
   },

@@ -1,0 +1,201 @@
+@import url('./font.css');
+
+w-mark-t {
+  position: relative;
+  display: inline-block;
+  line-height: normal;
+  vertical-align: middle;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 7em;
+  padding-inline: 0.3em;
+  text-indent: 0;
+  opacity: 0.5;
+  font-size: 0.8em;
+  font-style: italic;
+  font-weight: normal;
+  user-select: none;
+  &:not(:defined) {
+    visibility: visible !important; /* for reddit */
+  }
+  &:hover {
+    opacity: 1;
+    overflow: visible;
+    color: transparent;
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0.3em;
+      right: 0.3em;
+      padding-right: 0.3em;
+      z-index: 2;
+      white-space: nowrap;
+      width: max-content;
+      border-radius: 0.3em;
+      content: attr(data-trans);
+      color: #fff;
+      box-shadow:
+        inset 0 -3em 3em rgba(0, 0, 0, 0.1),
+        0 0 0 2px rgb(255, 255, 255),
+        0.3em 0.3em 1em rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s;
+      background-color: #666;
+
+      @starting-style {
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+/* for pdf.js viewer */
+.textLayer {
+  opacity: unset;
+  ::selection {
+    background-color: rgba(0, 0, 255, 0.25);
+  }
+}
+
+code,
+.monaco-editor {
+  w-mark-t {
+    display: none;
+  }
+}
+
+body:has(.__zen_mode) {
+  overflow: hidden;
+}
+.__zen_mode {
+  color-scheme: dark light;
+  --zen-bg-color: antiquewhite;
+  --text-color: #666;
+  --column-dot: turquoise;
+  --outline-dash: rgba(0, 0, 0, 0.1);
+  --text-outline: rgba(0, 0, 0, 0.4);
+  --text-kdb: #fff;
+}
+
+@media (prefers-color-scheme: dark) {
+  .__zen_mode {
+    --zen-bg-color: #3c3c3c;
+    --text-color: #aaa;
+    --column-dot: #268178;
+    --outline-dash: rgba(231, 220, 220, 0.1);
+    --text-outline: rgba(255, 255, 255, 0.4);
+    --text-kdb: #ccc;
+  }
+}
+
+.__zen_mode {
+  display: block;
+  position: fixed;
+  z-index: 1000000000;
+  inset: 0;
+  padding: 40px;
+  background-color: var(--zen-bg-color);
+  overflow: auto;
+  *:not(w-mark-t) {
+    all: revert;
+  }
+
+  font-family: BlinkMacSystemFont, sans-serif;
+
+  pre {
+    padding: 0;
+    margin: 0;
+    background-color: unset !important;
+    border: none !important;
+  }
+
+  .zen_close_btn {
+    position: absolute;
+    cursor: pointer;
+    right: 20px;
+    top: 20px;
+    transition: opacity 0.5s;
+    :hover {
+      opacity: 0.8;
+    }
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .zen_buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-bottom: 40px;
+    button {
+      all: revert;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+
+      img {
+        width: 14px;
+        height: 14px;
+        vertical-align: middle;
+        margin-right: 5px;
+      }
+    }
+    label {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      cursor: pointer;
+      color: var(--text-color);
+      font-size: 14px;
+      input {
+        cursor: pointer;
+        accent-color: #98ccfd;
+      }
+    }
+  }
+
+  .zen_words {
+    columns: 10rem;
+    column-gap: 7rem;
+    column-rule: 4px dotted var(--column-dot);
+    word-break: break-all;
+    span {
+      display: inline-block;
+      break-inside: avoid;
+      white-space: nowrap;
+      font-size: 12px;
+      line-height: 1.5;
+      padding: 0 2px;
+      margin: 5px 5px !important;
+      &:nth-child(20n) {
+        margin-bottom: 50px;
+      }
+    }
+  }
+
+  .__excluded {
+    opacity: 0.3;
+  }
+
+  p {
+    width: max-content;
+    margin: 10px auto 40px auto;
+    padding: 10px;
+    outline: 5px dashed var(--outline-dash);
+    font-size: 10px;
+    font-weight: bold;
+    color: var(--text-outline);
+    text-align: center;
+  }
+
+  kbd {
+    all: revert;
+    padding: 2px 4px;
+    border-radius: 4px;
+    color: var(--text-kdb);
+    background-color: #333;
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.25);
+  }
+}

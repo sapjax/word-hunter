@@ -6,39 +6,31 @@ on:
       - 'v.*' # Match any tag with the format x.y.z
 
 jobs:
-  create_release:
+  submit:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v2
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18' # Choose the Node.js version you need
+          node-version: 20
+          cache: 'pnpm'
 
       - name: Install dependencies
-        run: npm install
+        run: pnpm install
 
-      - name: Build
-        run: npm run build
+      - name: Zip extensions
+        run: |
+          pnpm zip
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
+      - name: Submit to stores
+        run: |
+          pnpm wxt submit \
+            --chrome-zip build/*-chrome.zip \
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          files: build/* # Include files from the build folder
-          release-name: Release ${{ github.ref }} # Set the release name based on the tag
-
-      - name: Upload Release Asset
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./build/release.zip # Path to your release asset
-          asset_name: release.zip
-          asset_content_type: application/zip
+          CHROME_EXTENSION_ID: ${{ secrets.CHROME_EXTENSION_ID }}
+          CHROME_CLIENT_ID: ${{ secrets.CHROME_CLIENT_ID }}
+          CHROME_CLIENT_SECRET: ${{ secrets.CHROME_CLIENT_SECRET }}
+          CHROME_REFRESH_TOKEN: ${{ secrets.CHROME_REFRESH_TOKEN }}
