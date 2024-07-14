@@ -1,6 +1,6 @@
 import { For } from 'solid-js'
-import { settings, setSetting } from '../../lib'
-import { Levels, LevelKey } from '../../lib/constant'
+import { settings, setSetting } from '~lib'
+import { Levels, LevelKey } from '~lib/constant'
 import { Note } from './note'
 
 export const LevelSetting = () => {

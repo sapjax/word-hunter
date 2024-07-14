@@ -2,7 +2,7 @@ import './index_.css'
 import '@webcomponents/custom-elements'
 import { render } from 'solid-js/web'
 import { ZenMode } from './card'
-import { genMarkStyle, settings } from '../../lib'
+import { genMarkStyle, settings } from '~lib'
 
 declare module 'solid-js' {
   namespace JSX {

@@ -1,8 +1,8 @@
-import { Messages, WordMap, WordInfoMap, WordContext, StorageKey, LevelKey } from '../../lib/constant'
-import { explainWord } from '../../lib/openai'
-import { syncUpKnowns, getLocalValue, getAllKnownSync } from '../../lib/storage'
-import { settings } from '../../lib/settings'
-import { triggerGoogleDriveSyncJob, syncWithDrive } from '../../lib/backup/sync'
+import { Messages, WordMap, WordInfoMap, WordContext, StorageKey, LevelKey } from '~lib/constant'
+import { explainWord } from '~lib/openai'
+import { syncUpKnowns, getLocalValue, getAllKnownSync } from '~lib/storage'
+import { settings } from '~lib/settings'
+import { triggerGoogleDriveSyncJob, syncWithDrive } from '~lib/backup/sync'
 
 let dict: WordInfoMap
 let knowns: WordMap

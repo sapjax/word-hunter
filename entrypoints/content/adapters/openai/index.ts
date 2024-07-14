@@ -2,8 +2,8 @@
 
 import dictStyles from './index.css?inline'
 import type { Adapter } from '../type'
-import { Messages } from '../../../../lib/constant'
-import { sendMessage } from '../../../../lib/port'
+import { Messages } from '~lib/constant'
+import { sendMessage } from '~lib/port'
 
 const cache: Record<string, string> = {}
 

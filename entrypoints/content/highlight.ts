@@ -8,10 +8,10 @@ import {
   wordRegex,
   StorageKey,
   cnRegex
-} from '../../lib/constant'
+} from '~lib/constant'
 import { createSignal } from 'solid-js'
-import { getDocumentTitle, getFaviconUrl, settings, getSelectedDicts, getAllKnownSync, debounce } from '../../lib'
-import { getMessagePort } from '../../lib/port'
+import { getDocumentTitle, getFaviconUrl, settings, getSelectedDicts, getAllKnownSync, debounce } from '~lib'
+import { getMessagePort } from '~lib/port'
 
 export const unknownHL = new Highlight()
 export const contextHL = new Highlight()

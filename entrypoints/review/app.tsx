@@ -1,7 +1,7 @@
-import { ContextMap, StorageKey, WordContext } from '../../lib/constant'
+import { ContextMap, StorageKey, WordContext } from '~lib/constant'
 import { createEffect, createSignal, For, Show } from 'solid-js'
-import { getLocalValue } from '../../lib/storage'
-import { getFaviconByDomain, getRelativeTimeString, formatTime } from '../../lib/utils'
+import { getLocalValue } from '~lib/storage'
+import { getFaviconByDomain, getRelativeTimeString, formatTime } from '~lib/utils'
 
 export const App = () => {
   const [contexts, setContexts] = createSignal<ContextMap>({})

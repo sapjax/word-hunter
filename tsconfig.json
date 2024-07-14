@@ -12,7 +12,12 @@
     "jsxImportSource": "solid-js",
     "types": ["chrome"],
     "noEmit": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "baseUrl": ".",
+    "paths": {
+        "~lib": ["lib"],
+        "~lib/*": ["lib/*"],
+    }
   },
   "exclude": ["node_modules", "build", "audio.js"]
 }

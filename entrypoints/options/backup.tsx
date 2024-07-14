@@ -1,11 +1,11 @@
 import { createSignal, Show } from 'solid-js'
-import { StorageKey } from '../../lib/constant'
-import { downloadAsJsonFile, resotreSettings } from '../../lib'
-import { syncUpKnowns, getLocalValue } from '../../lib/storage'
+import { StorageKey } from '~lib/constant'
+import { downloadAsJsonFile, resotreSettings } from '~lib'
+import { syncUpKnowns, getLocalValue } from '~lib/storage'
 import { Note } from './note'
-import { syncWithDrive, getBackupData } from '../../lib/backup/sync'
-import { formatTime } from '../../lib/utils'
-import { isMobile, isValidAuthToken } from '../../lib/backup/drive'
+import { syncWithDrive, getBackupData } from '~lib/backup/sync'
+import { formatTime } from '~lib/utils'
+import { isMobile, isValidAuthToken } from '~lib/backup/drive'
 
 export const Backup = () => {
   const [toastSuccess, setToastSuccess] = createSignal('')

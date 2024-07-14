@@ -1,4 +1,4 @@
-import { settings, setSetting } from '../../lib'
+import { settings, setSetting } from '~lib'
 
 export const CnTransSetting = () => {
   const onInput = (e: Event) => {

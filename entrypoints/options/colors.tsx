@@ -1,4 +1,4 @@
-import { settings, setSetting, MarkStyles } from '../../lib'
+import { settings, setSetting, MarkStyles } from '~lib'
 import { For } from 'solid-js'
 
 export const ColorsSetting = () => {

@@ -1,5 +1,5 @@
 import { For, JSXElement, createSignal } from 'solid-js'
-import { settings, setSetting, DictName } from '../../lib'
+import { settings, setSetting, DictName } from '~lib'
 import { Note } from './note'
 import {
   useDragDropContext,

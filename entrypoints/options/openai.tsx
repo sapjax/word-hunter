@@ -1,5 +1,5 @@
 import { Show } from 'solid-js'
-import { settings, setSetting } from '../../lib'
+import { settings, setSetting } from '~lib'
 
 export const OpenAISetting = () => {
   const onApiKeyChange = (e: Event) => {

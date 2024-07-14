@@ -1,7 +1,7 @@
 import cardStyles from './card.css?inline'
 import { createSignal, createEffect, Show, For, Switch, Match, batch, onMount, onCleanup } from 'solid-js'
 import { customElement } from 'solid-element'
-import { classes, Messages, WordContext } from '../../lib/constant'
+import { classes, Messages, WordContext } from '~lib/constant'
 import {
   init as highlightInit,
   unknownHL,
@@ -21,11 +21,11 @@ import {
   getWordAllTenses,
   getRangeAtPoint
 } from './highlight'
-import { getMessagePort } from '../../lib/port'
+import { getMessagePort } from '~lib/port'
 import { Dict } from './dict'
 import { adapters, AdapterKey } from './adapters'
-import { getWordContext, safeEmphasizeWordInText, getFaviconByDomain, settings, explode } from '../../lib'
-import { readBlacklist } from '../../lib/blacklist'
+import { getWordContext, safeEmphasizeWordInText, getFaviconByDomain, settings, explode } from '~lib'
+import { readBlacklist } from '~lib/blacklist'
 
 let timerShowRef: number
 let timerHideRef: number

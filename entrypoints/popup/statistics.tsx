@@ -1,5 +1,5 @@
 import { createSignal } from 'solid-js'
-import { executeScript, settings } from '../../lib'
+import { executeScript, settings } from '~lib'
 import styles from './app.module.css'
 
 export const Statistics = () => {

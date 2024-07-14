@@ -1,4 +1,4 @@
-import { settings, setSetting } from '../../lib'
+import { settings, setSetting } from '~lib'
 
 export const PronounceSetting = () => {
   const onInput = (e: Event) => {

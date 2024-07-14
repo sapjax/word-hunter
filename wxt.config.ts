@@ -3,6 +3,9 @@ import packageJson from './package.json'
 
 // See https://wxt.dev/api/config.html
 export default defineConfig({
+  alias: {
+    '~lib': 'lib'
+  },
   experimental: {
     includeBrowserPolyfill: false
   },

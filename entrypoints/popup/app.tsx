@@ -1,9 +1,9 @@
 import styles from './app.module.css'
 import { Statistics } from './statistics'
 import { Show, createSignal, onMount } from 'solid-js'
-import { settings, setSetting, executeScript, getLocalValue } from '../../lib'
+import { settings, setSetting, executeScript, getLocalValue } from '~lib'
 import manifest from '../../package.json'
-import { StorageKey } from '../../lib/constant'
+import { StorageKey } from '~lib/constant'
 
 const onFastModeToggle = () => {
   executeScript(() => window.__toggleZenMode())

@@ -1,4 +1,4 @@
-import { settings, setSetting } from '../../lib'
+import { settings, setSetting } from '~lib'
 import { Note } from './note'
 
 export const ControlSetting = () => {
