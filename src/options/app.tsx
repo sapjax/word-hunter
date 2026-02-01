@@ -8,6 +8,7 @@ import { CnTransSetting } from './cnTrans'
 import { ControlSetting } from './control'
 import { ColorsSetting } from './colors'
 import { PreloadSetting } from './preload'
+import { BadgeSetting } from './badge'
 
 export const App = () => {
   return (
@@ -16,6 +17,7 @@ export const App = () => {
         <ColorsSetting />
         <CnTransSetting />
         <YoutubeSetting />
+        <BadgeSetting />
         <PreloadSetting />
         <PronounceSetting />
         <DictsSetting />

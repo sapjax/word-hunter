@@ -42,6 +42,10 @@ async function getZhTransJson() {
 }
 
 function updateBadge(wordsKnown: WordMap) {
+  if (!settings().showBadgeCount) {
+    chrome.action.setBadgeText({ text: '' })
+    return
+  }
   const knownWordsCount = Object.keys(wordsKnown).length
   let badgeText = knownWordsCount > 0 ? String(knownWordsCount) : ''
   if (knownWordsCount >= 10000) {
@@ -314,6 +318,13 @@ chrome.storage.onChanged.addListener(async (changes, namespace) => {
   if (namespace === 'sync' && changes[StorageKey.knwon_update_timestamp]) {
     knowns = await getAllKnownSync()
     updateBadge(knowns)
+  }
+  if (namespace === 'sync' && changes[StorageKey.settings]) {
+    const { oldValue, newValue } = changes[StorageKey.settings]
+    if (oldValue?.showBadgeCount !== newValue?.showBadgeCount) {
+      knowns = knowns ?? (await getAllKnownSync())
+      updateBadge(knowns)
+    }
   }
 })
 
